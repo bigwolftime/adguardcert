@@ -34,7 +34,7 @@ set_context() {
 # 3. Remove all certs with our hash from the `cacerts-removed` directory.
 #    They get there if a certificate is "disabled" in the security settings.
 #    Apps will reject certs that are in the `cacerts-removed`.
-AG_CERT_HASH=0f4ed297
+AG_CERT_HASH=364618e0
 AG_CERT_FILE=$(ls /data/misc/user/*/cacerts-added/${AG_CERT_HASH}.* | (IFS=.; while read -r left right; do echo $right $left.$right; done) | sort -nr | (read -r left right; echo $right))
 
 if ! [ -e "${AG_CERT_FILE}" ]; then
