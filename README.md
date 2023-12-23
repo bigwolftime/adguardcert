@@ -1,3 +1,19 @@
+# Write In Front
+
+Forked from: [AdGuard Certificate](https://github.com/AdguardTeam/adguardcert)
+
+This project has made the following changes to the contents of the `module/post-fs-data.sh` file:
+* Mount all cert file(`/data/misc/user/0/cacerts-added/`)
+
+# 写在前面
+
+克隆自: [AdGuard Certificate](https://github.com/AdguardTeam/adguardcert)
+
+本项目对 `module/post-fs-data.sh` 文件的内容做出了如下修改:
+* 将 `/data/misc/user/0/cacerts-added/` 的证书文件全部挂载
+
+---
+
 # AdGuard Certificate
 
 Based on [Move Certificates](https://github.com/Magisk-Modules-Repo/movecert).
