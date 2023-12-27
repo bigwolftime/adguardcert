@@ -3,18 +3,14 @@
 Forked from: [AdGuard Certificate](https://github.com/AdguardTeam/adguardcert)
 
 This project has made the following changes to the contents of the `module/post-fs-data.sh` file:
-* AG_CERT_HASH variable changed to: `364618e0`
-
-> `364618e0.0` is the root certificate of [reqable](https://reqable.com/) software hash.
+* Mount all cert file(`/data/misc/user/0/cacerts-added/`)
 
 # 写在前面
 
 克隆自: [AdGuard Certificate](https://github.com/AdguardTeam/adguardcert)
 
 本项目对 `module/post-fs-data.sh` 文件的内容做出了如下修改:
-* AG_CERT_HASH 变量改为: `364618e0`
-
-> `364618e0.0` 是 [reqable](https://reqable.com/) 软件的根证书 hash.
+* 将 `/data/misc/user/0/cacerts-added/` 的证书文件全部挂载
 
 ---
 

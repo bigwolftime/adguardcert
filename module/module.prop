@@ -1,7 +1,7 @@
-id=adguardcert
-name=AdGuard Certificate
-version=v2.0
-versionCode=35
-author=AdGuard
-description=Moves AdGuard's root CA certificate from the user certificate store to the system certificate store.
-updateJson=https://raw.githubusercontent.com/AdguardTeam/adguardcert/master/update.json
+id=mount_cert_cover_adguardcert
+name=Mount Certificate Cover AdGuardCert
+version=v1.0
+versionCode=1
+author=bigwolftime
+description=Mount CA certificate from the user certificate store to the system certificate store.
+updateJson=https://raw.githubusercontent.com/bigwolftime/mount_cert_cover_adguardcert/master/update.json

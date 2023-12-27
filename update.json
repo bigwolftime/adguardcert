@@ -1,6 +1,6 @@
 {
-  "version": "v2.0",
-  "versionCode": 35,
-  "zipUrl": "https://github.com/AdguardTeam/adguardcert/releases/download/v2.0/adguardcert-v2.0.zip",
-  "changelog": "https://github.com/AdguardTeam/adguardcert/releases/tag/v2.0"
+  "version": "v1.0",
+  "versionCode": 1,
+  "zipUrl": "https://github.com/bigwolftime/mount_cert_cover_adguardcert/releases/download/v1.0/mount_cert_cover_adguardcert-v1.0.zip",
+  "changelog": "https://github.com/bigwolftime/mount_cert_cover_adguardcert/releases/tag/v1.0"
 }

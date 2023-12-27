@@ -5,6 +5,7 @@ exec 2>&1
 
 set -x
 
+# current shell directory
 MODDIR=${0%/*}
 
 set_context() {
@@ -34,16 +35,18 @@ set_context() {
 # 3. Remove all certs with our hash from the `cacerts-removed` directory.
 #    They get there if a certificate is "disabled" in the security settings.
 #    Apps will reject certs that are in the `cacerts-removed`.
-AG_CERT_HASH=364618e0
-AG_CERT_FILE=$(ls /data/misc/user/*/cacerts-added/${AG_CERT_HASH}.* | (IFS=.; while read -r left right; do echo $right $left.$right; done) | sort -nr | (read -r left right; echo $right))
+# AG_CERT_HASH=364618e0
 
-if ! [ -e "${AG_CERT_FILE}" ]; then
-    exit 0
-fi
+# e.g. AG_CERT_FILE = /data/misc/user/0/cacerts-added/364618e0.0
+# AG_CERT_FILE=$(ls /data/misc/user/*/cacerts-added/${AG_CERT_HASH}.* | (IFS=.; while read -r left right; do echo $right $left.$right; done) | sort -nr | (read -r left right; echo $right))
 
-rm -f /data/misc/user/*/cacerts-removed/${AG_CERT_HASH}.*
+# Note: /data/misc/user/*/cacerts-removed is a directory for storing certificates that the user has deleted.
+# When the user clicks "Clear Credentials" on the "Encryption and Credentials" page, the system will move the
+# certificates installed by the user from /data/misc/user/0/cacerts-added to this directory for recovery when needed.
+# rm -f /data/misc/user/*/cacerts-removed/${AG_CERT_HASH}.*
 
-cp -f ${AG_CERT_FILE} ${MODDIR}/system/etc/security/cacerts/${AG_CERT_HASH}.0
+cp -f /data/misc/user/*/cacerts-added/* ${MODDIR}/system/etc/security/cacerts/
+# change owner to root user (user: root, group: root)
 chown -R 0:0 ${MODDIR}/system/etc/security/cacerts
 set_context /system/etc/security/cacerts ${MODDIR}/system/etc/security/cacerts
 
@@ -57,7 +60,7 @@ if [ -d /apex/com.android.conscrypt/cacerts ]; then
     cp -f /apex/com.android.conscrypt/cacerts/* /data/local/tmp/adg-ca-copy/
 
     # Do the same as in Magisk module
-    cp -f ${AG_CERT_FILE} /data/local/tmp/adg-ca-copy
+    cp -f /data/misc/user/*/cacerts-added/* /data/local/tmp/adg-ca-copy
     chown -R 0:0 /data/local/tmp/adg-ca-copy
     set_context /apex/com.android.conscrypt/cacerts /data/local/tmp/adg-ca-copy
 
